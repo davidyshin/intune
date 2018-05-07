@@ -36,6 +36,6 @@ InTune is a full stack web application for sharing music. By the end of Week 4, 
 
     **Objective:** Users can post on other user's walls. Each post can have their own comments and likes. 
 
-- ### Phase 4: Notification System
+- ### Phase 4: Implement Spotify API
 
     **Objective:** Every share and post will implement Spotify's API. This will link the song and album cover as well as the URI that spotify uses.
