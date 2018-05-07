@@ -10,19 +10,21 @@ class Header extends Component {
   render() {
     return (
       <AuthConsumer>
-        {({ isAuth, logout }) => (
+        {({ activeUser, logout }) => (
           <div>
             <h3>
               <Link to="/">HOME</Link>
             </h3>
 
-            {isAuth ? (
+            {activeUser ? (
               <ul>
-                <Link to="/dashboard">Dashboard</Link>
                 <button onClick={logout}>logout</button>
               </ul>
             ) : (
-              <Link to="/login">Login</Link>
+              <div>
+                <Link to="/login">Login</Link>
+                <Link to="/signup">Sign Up </Link>
+              </div>
             )}
           </div>
         )}

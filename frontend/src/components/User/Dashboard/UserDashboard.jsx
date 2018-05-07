@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { AuthConsumer } from './Auth/AuthContext';
+import { AuthConsumer } from '../Auth/AuthContext';
 import { Link } from 'react-router-dom';
 
-class Dashboard extends Component {
+class UserDashboard extends Component {
     constructor(){
         super()
         this.state ={}
@@ -15,4 +15,4 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard
+export default UserDashboard

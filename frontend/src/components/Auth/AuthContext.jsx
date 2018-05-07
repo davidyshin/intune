@@ -1,12 +1,24 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import axios from 'axios';
 
 const AuthContext = React.createContext();
 
 class AuthProvider extends Component {
   constructor() {
     super();
-    this.state = { username: '', password: '', isAuth: false };
+    this.state = { username: '', password: '', activeUser: false };
+  }
+  componentDidMount() {
+    axios
+      .get('/users/getUser')
+      .then(res => {
+        this.setState({
+          activeUser: res.data.user
+        });
+      })
+      .catch(err => {
+        console.log(`errrr`, err);
+      });
   }
 
   login = (username, password) => {
@@ -16,12 +28,12 @@ class AuthProvider extends Component {
         password: password
       })
       .then(res => {
-        this.setState({ isAuth: true });
+        this.setState({ activeUser: res.data });
       })
       .catch(err => {
         console.log(err);
       });
-  }
+  };
 
   handleInput = e => {
     this.setState({
@@ -40,19 +52,19 @@ class AuthProvider extends Component {
       .get('/users/logout')
       .then(res => {
         this.setState({
-          isAuth: false
+          activeUser: false
         });
       })
       .catch(err => {
         console.log(err);
       });
-  }
+  };
 
   render() {
     return (
       <AuthContext.Provider
         value={{
-          isAuth: this.state.isAuth,
+          activeUser: this.state.activeUser,
           login: this.login,
           logout: this.logout,
           handleInput: this.handleInput,
