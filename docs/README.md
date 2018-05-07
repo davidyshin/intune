@@ -13,8 +13,8 @@ InTune is a full stack web application for sharing music. By the end of Week 4, 
 - [ ] Production README
 - [ ] Account personalization (Profile pictures using AmazonS3) 
 - Post MVP 
-    [ ] Implemented Music Player in-app
-    [ ] Instant Messaging system
+   -  [ ] Implemented Music Player in-app
+   - [ ] Instant Messaging system
 
 
 ## Design Docs
