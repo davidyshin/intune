@@ -14,8 +14,8 @@
 
 ### Session
 
-- `POST '/users/login'` - logs in user / creates session
-- `GET /users/logout - logs out user
+- `POST /users/login` - logs in user / creates session
+- `GET /users/logout` - logs out user
 
 ### Share
 
