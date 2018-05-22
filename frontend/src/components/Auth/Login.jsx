@@ -10,12 +10,6 @@ class LoginForm extends Component {
     super();
   }
 
-  testLogin = () => {
-    axios.get('/auth').then(res => {
-      console.log(res);
-    });
-  };
-
   render() {
     return (
       <AuthConsumer>
@@ -26,10 +20,9 @@ class LoginForm extends Component {
             <div className="login-container">
               <div className="spotify-auth-link">
                 {' '}
-                <i onClick={this.testLogin} class="fab fa-spotify" />
-                {/* <a href="http://localhost:3100/auth">
+                <a href="http://localhost:3100/auth">
                   <i class="fab fa-spotify" />
-                </a> */}
+                </a>
                 <h3> Login with Spotify </h3>
               </div>
             </div>
