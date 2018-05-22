@@ -6,14 +6,15 @@ const AuthContext = React.createContext();
 class AuthProvider extends Component {
   constructor() {
     super();
-    this.state = { username: '', password: '', activeUser: false };
+    this.state = { activeUser: false };
   }
   componentDidMount() {
     axios
       .get('/users/getUser')
       .then(res => {
+        console.log(res.data);
         this.setState({
-          activeUser: res.data.user
+          activeUser: res.data
         });
       })
       .catch(err => {
@@ -21,43 +22,10 @@ class AuthProvider extends Component {
       });
   }
 
-  login = (username, password) => {
-    axios
-      .post('/users/login', {
-        username: username,
-        password: password
-      })
-      .then(res => {
-        this.setState({ activeUser: res.data });
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
-
-  handleInput = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  };
-
-  handleSubmit = e => {
-    e.preventDefault();
-    const { username, password } = this.state;
-    this.login(username, password);
-  };
-
   logout = () => {
-    axios
-      .get('/users/logout')
-      .then(res => {
-        this.setState({
-          activeUser: false
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    axios.get('/users/logout').then(() => {
+      this.setState({ activeUser: false });
+    });
   };
 
   render() {
@@ -65,10 +33,7 @@ class AuthProvider extends Component {
       <AuthContext.Provider
         value={{
           activeUser: this.state.activeUser,
-          login: this.login,
-          logout: this.logout,
-          handleInput: this.handleInput,
-          handleSubmit: this.handleSubmit
+          logout: this.logout
         }}
       >
         {this.props.children}

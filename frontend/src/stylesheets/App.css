@@ -1,0 +1,139 @@
+html {
+  width: 100%;
+  height: 100%;
+  color: whitesmoke;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body {
+  /* background-image: url('https://images.pexels.com/photos/6251/desk-music-headphones-earphones.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'); */
+  background-image: url('https://images.pexels.com/photos/3104/black-and-white-music-headphones-life.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  background-attachment: fixed;
+  background-size: cover; /* <------ */
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.dashboard-container,
+.splash-container,
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.splash-container, .login-container {
+  padding-top: 150px;
+
+}
+
+.splash-intune {
+  color: #84bd00;
+}
+.splash-container p {
+  color: whitesmoke;
+}
+
+.header-container {
+  text-align: center;
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 10%;
+  text-align: center;
+  width: 100vw;
+  color: whitesmoke;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-container a {
+  color: whitesmoke;
+  font-size: 18px;
+  padding: 0px 20px 0px 20px;
+  padding: 0px 20px 0px 20px;
+  text-decoration: none;
+}
+
+.logout-link p {
+  font-size: 18px;
+}
+.logout-link p:hover {
+  color: black;
+}
+
+.spotify-auth-link {
+  color: whitesmoke;
+}
+
+.github-link a {
+  font-size: 30px;
+}
+.spotify-auth-link a {
+  color: #84bd00;
+  font-size: 150px;
+}
+
+.spotify-auth-link a:hover {
+  color: #84bd0079;
+}
+.header-container a:hover {
+  color: black;
+}
+
+.dashboard-container {
+  width: 100%;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 100%;
+  margin-top: 100px;    
+  background-color: rgba(0,0,0,.3);
+  padding: 25px;
+}
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.profile-info, .now-playing{
+  padding: 10px 45px 10px 45px;
+}
+
+.profile-info a, .now-playing a{
+  color: #84bd00;
+  text-decoration: none;
+}
+
+.profile-info a:hover, .now-playing a:hover{
+  color: #84bd0079;
+  text-decoration: none;
+}
+
+.now-playing {
+  display:flex;
+  flex-direction: column;
+}
+.profile-pic, .now-playing-image {
+  width: auto;
+  height: 200px;
+}
+
+/* https://www.designpieces.com/palette/spotify-color-palette-hex-and-rgb/ */

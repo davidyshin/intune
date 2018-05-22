@@ -10,7 +10,7 @@ const dotenv = require('dotenv');
 
 const index = require('./routes/index');
 const users = require('./routes/users');
-
+const cors = require('cors');
 const app = express();
 dotenv.load();
 console.log(process.env.NODE_ENV);
@@ -30,18 +30,46 @@ app.use(
     saveUninitialized: true
   })
 );
+
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.static(path.join(__dirname, 'frontend/build')));
+app.use(express.static(path.join(__dirname, 'frontend/build'))).use(cors());
+
+// The request will be redirected to spotify for authentication, so this
+// function will not be called.
 
 app.use('/', index);
 
 app.use('/users', users);
 
+app.get(
+  '/auth/callback',
+  passport.authenticate('spotify', {
+    failureRedirect: 'http://localhost:3000/login'
+  }),
+  (req, res) => {
+    res.redirect('http://localhost:3000/');
+  }
+);
+
+app.get(
+  '/auth',
+  passport.authenticate('spotify', {
+    scope: [
+      'user-read-email',
+      'user-read-private',
+      'user-read-currently-playing',
+      'user-read-playback-state',
+      'user-follow-modify',
+      'user-follow-read'
+    ]
+  }),
+  (req, res) => {}
+);
+
 app.get('*', (req, res) => {
   res.sendfile(__dirname + '/frontend/build/index.html');
 });
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

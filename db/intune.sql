@@ -6,16 +6,38 @@ Drop TABLE Users
 CASCADE;
 CREATE TABLE Users
 (
-    id SERIAL UNIQUE,
-    first_name VARCHAR,
-    last_name VARCHAR,
-    photo_url VARCHAR,
-    password_digest VARCHAR NOT NULL,
-    username VARCHAR UNIQUE,
-    PRIMARY KEY (id)
+  spotifyId VARCHAR UNIQUE,
+  name VARCHAR,
+  email VARCHAR,
+  spotify_url VARCHAR,
+  profile_pic VARCHAR,
+  accessToken VARCHAR,
+  PRIMARY KEY (spotifyId)
 );
-INSERT INTO Users
-    (first_name, last_name, photo_url, password_digest, username)
-VALUES
-    ('Helen', 'Cho', 'https://i.imgur.com/ePbPHIY.png', '$2a$10$brAZfSmByFeZmPZ/MH5zne9YDhugjW9CtsBGgXqGfix0g1tcooZWq', 'elixirality@gmail.com'),
-    ('David', 'Shin', 'https://i.imgur.com/XsVmYKK.png', '$2a$10$brAZfSmByFeZmPZ/MH5zne9YDhugjW9CtsBGgXqGfix0g1tcooZWq', 'evadshin@gmail.com');
+Drop TABLE posts
+CASCADE;
+CREATE TABLE posts
+(
+  ID SERIAL PRIMARY KEY,
+  spotify_uri VARCHAR,
+  album_cover VARCHAR,
+  caption VARCHAR,
+  user_id VARCHAR REFERENCES users(spotifyId),
+  dates VARCHAR
+);
+Drop TABLE likes
+CASCADE;
+CREATE TABLE likes
+(
+  ID SERIAL PRIMARY KEY,
+  liker_id VARCHAR REFERENCES users(spotifyId),
+  post_id INTEGER REFERENCES posts(ID)
+);
+Drop TABLE follows
+CASCADE;
+CREATE TABLE follows
+(
+  ID SERIAL PRIMARY KEY,
+  follower_id VARCHAR REFERENCES users(spotifyId),
+  followee_id VARCHAR REFERENCES users(spotifyId)
+);

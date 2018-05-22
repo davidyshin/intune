@@ -11,11 +11,5 @@ router.get('/getUser', loginRequired, db.getUser);
 
 router.get('/logout', loginRequired, db.logoutUser);
 
-router.post('/newuser', db.registerUser);
-
-router.post('/login', passport.authenticate('local'), (req, res) => {
-  delete req.user.password_digest
-  res.json(req.user);
-});
 
 module.exports = router;
