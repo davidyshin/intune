@@ -22,6 +22,12 @@ class AuthProvider extends Component {
       });
   }
 
+  login = () => {
+    axios.get('/auth').then(res => {
+      this.setState({ activeUser: res.data });
+    });
+  };
+
   logout = () => {
     axios.get('/users/logout').then(() => {
       this.setState({ activeUser: false });
@@ -33,6 +39,7 @@ class AuthProvider extends Component {
       <AuthContext.Provider
         value={{
           activeUser: this.state.activeUser,
+          login: this.login,
           logout: this.logout
         }}
       >

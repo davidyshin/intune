@@ -13,16 +13,16 @@ class LoginForm extends Component {
   render() {
     return (
       <AuthConsumer>
-        {({ activeUser }) =>
+        {({ activeUser, login }) =>
           activeUser ? (
             <Redirect to="/" />
           ) : (
             <div className="login-container">
               <div className="spotify-auth-link">
                 {' '}
-                <a href="http://localhost:3100/auth">
-                  <i class="fab fa-spotify" />
-                </a>
+                {/* <a href="http://localhost:3100/auth"> */}
+                  <i onClick={login} class="fab fa-spotify" />
+                {/* </a> */}
                 <h3> Login with Spotify </h3>
               </div>
             </div>

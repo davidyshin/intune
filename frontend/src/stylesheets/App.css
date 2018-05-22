@@ -77,12 +77,12 @@ body {
 .github-link a {
   font-size: 30px;
 }
-.spotify-auth-link a {
+.spotify-auth-link i {
   color: #84bd00;
   font-size: 150px;
 }
 
-.spotify-auth-link a:hover {
+.spotify-auth-link i:hover {
   color: #84bd0079;
 }
 .header-container a:hover {
