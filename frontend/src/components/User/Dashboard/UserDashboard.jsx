@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { AuthConsumer } from '../../Auth/AuthContext';
-import { Link } from 'react-router-dom';
-import SpotifyWebApi from 'spotify-web-api-js';
-const spotifyApi = new SpotifyWebApi();
+import UserNewPost from './UserNewPost';
+import UserProfile from './UserProfile';
 
 class UserDashboard extends Component {
   constructor() {
@@ -10,63 +9,34 @@ class UserDashboard extends Component {
 
     this.state = {
       activeUser: '',
-      nowPlaying: { name: '', albumArt: '' }
+      nowPlaying: { name: '', albumArt: '' },
+      songSearchRender: [],
+      songSearchInput: '',
+      selectedSong: ''
     };
   }
 
-  componentDidMount() {
-    const activeUser = this.props.activeUser;
-    const profilePic = activeUser.profile_pic
-      ? activeUser.profile_pic
-      : 'https://www.drupal.org/files/profile_default.png';
-    this.setState({ activeUser: activeUser, profilePic: profilePic });
-    const token = activeUser.accesstoken;
-    if (token) {
-      spotifyApi.setAccessToken(token);
-    }
-    spotifyApi.getMyCurrentPlaybackState().then(response => {
-      console.log(response.item)
-      if (response) {
-        this.setState({
-          nowPlaying: {
-            name: response.item.name,
-            albumArt: response.item.album.images[0].url,
-            link: response.item.external_urls.spotify
-          }
-        });
-      }
-    });
-  }
+  componentDidMount() {}
 
-  getNowPlaying = e => {
-    e.preventDefault();
-
+  shareSong = () => {
+    const { selectedSong } = this.state;
+    console.log(selectedSong);
   };
 
   render() {
-    const { activeUser, profilePic, nowPlaying } = this.state;
-    return activeUser ? (
-      <div className="dashboard-container">
-        <div className="profile-container">
-          <div className="profile">
-            <div className="profile-info">
-              <p>
-                Welcome{' '}
-                <a href={activeUser.spotify_url} target="_blank"> {activeUser.name ? activeUser.name : activeUser.spotifyid} </a>
-              </p>{' '}
-              <img className="profile-pic" src={profilePic} />
+    return (
+      <AuthConsumer>
+        {({ activeUser }) =>
+          activeUser ? (
+            <div className="user-dashboard">
+              <UserProfile activeUser={activeUser} />
+              <UserNewPost activeUser={activeUser} />
             </div>
-            <div className="now-playing">
-              <p >
-                Listening to: <a href={nowPlaying.link} target="_blank">{nowPlaying.name}</a>
-              </p>
-              <img className="now-playing-image" src={nowPlaying.albumArt} />
-            </div>
-          </div>
-        </div>
-      </div>
-    ) : (
-      <h1>Loading</h1>
+          ) : (
+            <h1>Loading</h1>
+          )
+        }
+      </AuthConsumer>
     );
   }
 }

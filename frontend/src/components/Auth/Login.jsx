@@ -20,7 +20,7 @@ class LoginForm extends Component {
             <div className="login-container">
               <div className="spotify-auth-link">
                 {' '}
-                <a href="http://ds-intune.herokuapp.com/auth">
+                <a href="http://localhost:3100/auth">
                   <i class="fab fa-spotify" />
                 </a>
                 <h3> Login with Spotify </h3>

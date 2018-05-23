@@ -18,7 +18,7 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
 }
-.dashboard-container,
+
 .splash-container,
 .login-container {
   display: flex;
@@ -28,9 +28,9 @@ body {
   width: 100%;
 }
 
-.splash-container, .login-container {
+.splash-container,
+.login-container {
   padding-top: 150px;
-
 }
 
 .splash-intune {
@@ -93,47 +93,147 @@ body {
   width: 100%;
 }
 
-.profile-container {
+.user-dashboard {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 70%;
+  width: 80%;
   height: 100%;
-  margin-top: 100px;    
-  background-color: rgba(0,0,0,.3);
+  margin-top: 100px;
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 25px;
 }
 
 .profile {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
 }
 
-.profile-info, .now-playing{
-  padding: 10px 45px 10px 45px;
+.profile-info,
+.now-playing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid gray;
+  padding: 5px 45px 5px 45px;
 }
 
-.profile-info a, .now-playing a{
+.profile-info a,
+.now-playing a {
   color: #84bd00;
   text-decoration: none;
 }
 
-.profile-info a:hover, .now-playing a:hover{
+.profile-info a:hover,
+.now-playing a:hover {
   color: #84bd0079;
   text-decoration: none;
 }
 
 .now-playing {
-  display:flex;
+  display: flex;
   flex-direction: column;
+  margin-right: 50px;
 }
-.profile-pic, .now-playing-image {
+.profile-pic,
+.now-playing-image {
   width: auto;
-  height: 200px;
+  height: 100px;
+}
+
+.profile-pic {
+  border-radius: 50%;
+}
+
+.song-suggestions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  border: 1px solid black;
+}
+
+.song-search {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 46px;
+  margin-left: 40px;
+}
+
+.song-search-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.song-search input {
+  width: 325px;
+  font-size: 28px;
+  height: 30px;
+  padding: 12px;
+  outline: none;
+  border: none;
+  -moz-transition: 0.3s all;
+  -o-transition: 0.3s all;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.song-share-button {
+  font-size: 30px;
+  padding-left: 30px;
+  color: whitesmoke;
+}
+
+.song-share-button i:hover {
+  color: #84bd00;
+}
+
+@media screen and (max-width: 1024px) {
+  .song-search input {
+    width: 100%;
+  }
+  .song-search,
+  .song-search-input,
+  .user-dashboard {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 30px;
+  }
+  .song-search,
+  .song-share-button i {
+    padding-top: 50px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .profile,
+  .song-search {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .profile-info, .now-playing {
+    border: none;
+  }
+
+  .song-search,
+  .song-share-button i {
+    padding-top: 50px;
+  }
+  .now-playing {
+    margin: 0;
+  }
 }
 
 /* https://www.designpieces.com/palette/spotify-color-palette-hex-and-rgb/ */
