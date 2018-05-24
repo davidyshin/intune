@@ -39,32 +39,48 @@ class UserProfile extends Component {
   }
 
   render() {
-    const { activeUser, profilePic, nowPlaying } = this.state;
-    return activeUser ? (
-      <div className="profile-container">
-        <div className="profile">
-          <div className="profile-info">
-            <p>
-              <a href={activeUser.spotify_url} target="_blank">
-                {' '}
-                {activeUser.name ? activeUser.name : activeUser.spotifyid}{' '}
-              </a>
-            </p>{' '}
-            <img className="profile-pic" src={profilePic} />
-          </div>
-          <div className="now-playing">
-            <p>
-              Listening to:{' '}
-              <a href={nowPlaying.link} target="_blank">
-                {nowPlaying.name}
-              </a>
-            </p>
-            <img className="now-playing-image" src={nowPlaying.albumArt} />
-          </div>
-        </div>
-      </div>
-    ) : (
-      <h1>Loading</h1>
+    const {profilePic, nowPlaying } = this.state;
+    return (
+      <AuthConsumer>
+        {({ activeUser, logout }) =>
+          activeUser ? (
+            <div className="profile-container">
+              <div className="profile">
+                <div className="profile-info">
+                  <p>
+                    <a href={activeUser.spotify_url} target="_blank">
+                      {' '}
+                      {activeUser.name
+                        ? activeUser.name
+                        : activeUser.spotifyid}{' '}
+                    </a>
+                  </p>{' '}
+                  <img className="profile-pic" src={profilePic} />
+                </div>
+                <div className="now-playing">
+                  <p>
+                    Listening to:{' '}
+                    <a href={nowPlaying.link} target="_blank">
+                      {nowPlaying.name}
+                    </a>
+                  </p>
+                  <img
+                    className="now-playing-image"
+                    src={nowPlaying.albumArt}
+                  />
+                </div>
+              </div>
+              <div className="logout-link">
+                <p onClick={logout}>
+                  <i class="fas fa-sign-out-alt" />
+                </p>
+              </div>
+            </div>
+          ) : (
+            <h1>Loading</h1>
+          )
+        }
+      </AuthConsumer>
     );
   }
 }

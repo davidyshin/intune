@@ -38,7 +38,7 @@ class UserNewPost extends Component {
   };
   render() {
     return (
-      <div className="song-search">
+      <div className="song-search-container">
         <div className="song-search-title">
           <h3>Share a song</h3>
         </div>
@@ -54,7 +54,7 @@ class UserNewPost extends Component {
                 className="song-suggestions"
                 style={{
                   background: isHighlighted ? '#84bd00' : 'rgba(0,0,0,.75)',
-                  width: '325px',
+                  width: '500px',
                   height: '100%'
                 }}
               >
@@ -78,9 +78,9 @@ class UserNewPost extends Component {
               });
             }}
           />
-          <div className="song-share-button">
-            <i onClick={this.shareSong} class="fas fa-share" />
-          </div>
+        </div>
+        <div className="share-button">
+        <i onClick={this.shareSong} class="fas fa-share" />
         </div>
       </div>
     );

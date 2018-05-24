@@ -6,10 +6,12 @@ html {
 
 .App {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
 }
+
 body {
   /* background-image: url('https://images.pexels.com/photos/6251/desk-music-headphones-earphones.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'); */
   background-image: url('https://images.pexels.com/photos/3104/black-and-white-music-headphones-life.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
@@ -17,6 +19,10 @@ body {
   background-size: cover; /* <------ */
   background-repeat: no-repeat;
   background-position: center center;
+  height: 100%;
+}
+#root {
+  height: 100%;
 }
 
 .splash-container,
@@ -44,14 +50,14 @@ body {
   text-align: center;
   position: fixed;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  height: 10%;
+  background-color: rgba(0, 0, 0);
+  height: 50px;
   text-align: center;
   width: 100vw;
   color: whitesmoke;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -67,14 +73,18 @@ body {
   font-size: 18px;
 }
 .logout-link p:hover {
-  color: black;
+  color: #84bd00;
 }
 
 .spotify-auth-link {
   color: whitesmoke;
 }
 
-.github-link a {
+.github-link a,
+.users-link a,
+.home-link a,
+.login-link a,
+.logout-link p{
   font-size: 30px;
 }
 .spotify-auth-link i {
@@ -86,29 +96,32 @@ body {
   color: #84bd0079;
 }
 .header-container a:hover {
-  color: black;
-}
-
-.dashboard-container {
-  width: 100%;
+  color: #84bd00;
 }
 
 .user-dashboard {
+  width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  align-items: flex-start;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  width: 80%;
-  height: 100%;
-  margin-top: 100px;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 25px;
+  width: 20%;
+  height: 50%;
+  margin: 80px 0px 0px 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px;
 }
 
 .profile {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 100%;
 }
@@ -119,7 +132,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-right: 1px solid gray;
   padding: 5px 45px 5px 45px;
 }
 
@@ -135,11 +147,6 @@ body {
   text-decoration: none;
 }
 
-.now-playing {
-  display: flex;
-  flex-direction: column;
-  margin-right: 50px;
-}
 .profile-pic,
 .now-playing-image {
   width: auto;
@@ -158,13 +165,15 @@ body {
   border: 1px solid black;
 }
 
-.song-search {
+.song-search-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
-  padding-bottom: 46px;
-  margin-left: 40px;
+  width: 75%;
+  height: 150px;
+  margin: 80px 0px 0px 20px;
 }
 
 .song-search-input {
@@ -174,11 +183,11 @@ body {
   align-items: center;
 }
 
-.song-search input {
-  width: 325px;
+.song-search-container input {
+  width: 500px;
   font-size: 28px;
-  height: 30px;
-  padding: 12px;
+  height: 45px;
+  padding: 5px;
   outline: none;
   border: none;
   -moz-transition: 0.3s all;
@@ -188,13 +197,16 @@ body {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-.song-share-button {
+.song-search-title {
+  font-size: 23px;
+}
+
+.share-button {
   font-size: 30px;
-  padding-left: 30px;
   color: whitesmoke;
 }
 
-.song-share-button i:hover {
+.share-button i:hover {
   color: #84bd00;
 }
 
@@ -205,10 +217,9 @@ body {
   .song-search,
   .song-search-input,
   .user-dashboard {
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
-    margin-right: 30px;
   }
   .song-search,
   .song-share-button i {
@@ -220,10 +231,11 @@ body {
   .profile,
   .song-search {
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
   }
-  .profile-info, .now-playing {
+  .profile-info,
+  .now-playing {
     border: none;
   }
 

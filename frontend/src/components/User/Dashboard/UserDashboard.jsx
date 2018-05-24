@@ -9,19 +9,10 @@ class UserDashboard extends Component {
 
     this.state = {
       activeUser: '',
-      nowPlaying: { name: '', albumArt: '' },
-      songSearchRender: [],
-      songSearchInput: '',
-      selectedSong: ''
     };
   }
 
   componentDidMount() {}
-
-  shareSong = () => {
-    const { selectedSong } = this.state;
-    console.log(selectedSong);
-  };
 
   render() {
     return (
