@@ -45,10 +45,10 @@ app.use('/users', users);
 app.get(
   '/auth/callback',
   passport.authenticate('spotify', {
-    failureRedirect: 'http://localhost:3000/login'
+    failureRedirect: 'http://ds-intune.herokuapp.com/login'
   }),
   (req, res) => {
-    res.redirect('http://localhost:3000/');
+    res.redirect('http://ds-intune.herokuapp.com/');
   }
 );
 

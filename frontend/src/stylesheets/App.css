@@ -158,7 +158,8 @@ body {
   top: 0;
 }
 .dashboard-post-feed-container {
-  padding-left: 15%;
+  padding-left: 16%;
+  width: 75%;
 }
 
 .side-profile {
