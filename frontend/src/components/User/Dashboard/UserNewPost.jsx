@@ -169,17 +169,4 @@ class UserNewPost extends Component {
   }
 }
 
-{
-  /* <div className="new-post-modal-form">
-              <div className="new-post-modal-song-info">
-                <MusicPlayer
-                  style={{ color: '#84bd00' }}
-                  btnColor="#84bd00"
-                  progressColor="#84bd00"
-                  playlist={playlist}
-                />
-              </div>
-            </div> */
-}
-
 export default UserNewPost;
