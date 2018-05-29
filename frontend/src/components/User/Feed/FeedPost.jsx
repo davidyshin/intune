@@ -12,7 +12,7 @@ class FeedPost extends Component {
   constructor() {
     super();
     this.state = {
-      feedPost: [],
+      feedPost: '',
       author: ''
     };
   }
@@ -21,14 +21,14 @@ class FeedPost extends Component {
     this.setState({
       feedPost: this.props.feedPost
     });
-    axios.get(`/getProfile/${this.props.feedPost.user_id}`).then(res => {
+    axios.get(`/users/getProfile/${this.props.feedPost.user_id}`).then(res => {
       this.setState({ author: res.data.user });
       console.log(this.state.author)
     });
   }
   render() {
     const { feedPost, author } = this.state;
-    return feedPost !== undefined && author !== undefined ? (
+    return feedPost && author ? (
       <div className="feed-post-container">
         <SpotifyPlayer size={size} uri={feedPost.spotify_uri} />
         <div className="feed-post-caption">
