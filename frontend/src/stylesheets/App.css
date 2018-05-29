@@ -108,7 +108,6 @@ body {
   align-items: flex-start;
 }
 
-
 .feed-container {
   padding-bottom: 5%;
   overflow: scroll;
@@ -197,6 +196,11 @@ body {
   height: 100px;
 }
 
+.feed-post-profile-pic {
+  width: auto;
+  height: 64px;
+}
+
 .profile-pic {
   border-radius: 50%;
 }
@@ -246,7 +250,7 @@ body {
   border: none;
 }
 .user-name {
- padding-left: 50px;
+  padding-left: 50px;
 }
 .song-search-container input {
   width: 500px;
@@ -269,7 +273,7 @@ body {
 .share-button {
   font-size: 30px;
   color: whitesmoke;
-  padding:15px;
+  padding: 15px;
 }
 
 .share-button i:hover {
@@ -382,11 +386,13 @@ body {
   align-items: center;
 }
 
-.user-profile-info a {
+.user-profile-info a,
+.feed-post-author-link {
   color: #84bd00;
   text-decoration: none;
 }
-.user-profile-info a:hover {
+.user-profile-info a:hover,
+.feed-post-author-link:hover {
   color: #84bd0079;
 }
 
@@ -424,7 +430,6 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-
 }
 
 .user-follow-button button:hover,
