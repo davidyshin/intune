@@ -6,10 +6,12 @@ html {
 
 .App {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
 }
+
 body {
   /* background-image: url('https://images.pexels.com/photos/6251/desk-music-headphones-earphones.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'); */
   background-image: url('https://images.pexels.com/photos/3104/black-and-white-music-headphones-life.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
@@ -17,8 +19,12 @@ body {
   background-size: cover; /* <------ */
   background-repeat: no-repeat;
   background-position: center center;
+  height: 100%;
 }
-.dashboard-container,
+#root {
+  height: 100%;
+}
+
 .splash-container,
 .login-container {
   display: flex;
@@ -28,9 +34,9 @@ body {
   width: 100%;
 }
 
-.splash-container, .login-container {
+.splash-container,
+.login-container {
   padding-top: 150px;
-
 }
 
 .splash-intune {
@@ -44,14 +50,14 @@ body {
   text-align: center;
   position: fixed;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  height: 10%;
+  background-color: rgba(0, 0, 0);
+  height: 50px;
   text-align: center;
   width: 100vw;
   color: whitesmoke;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -67,73 +73,360 @@ body {
   font-size: 18px;
 }
 .logout-link p:hover {
-  color: black;
+  color: #84bd00;
 }
 
 .spotify-auth-link {
   color: whitesmoke;
 }
 
-.github-link a {
+.github-link a,
+.users-link a,
+.home-link a,
+.login-link a,
+.logout-link p {
   font-size: 30px;
 }
-.spotify-auth-link a {
+.spotify-auth-link i {
   color: #84bd00;
   font-size: 150px;
 }
 
-.spotify-auth-link a:hover {
+.spotify-auth-link i:hover {
   color: #84bd0079;
 }
 .header-container a:hover {
-  color: black;
+  color: #84bd00;
 }
 
-.dashboard-container {
+.user-dashboard {
   width: 100%;
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
 }
 
-.profile-container {
+
+.feed-container {
+  padding-bottom: 5%;
+  overflow: scroll;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 70%;
-  height: 100%;
-  margin-top: 100px;    
-  background-color: rgba(0,0,0,.3);
-  padding: 25px;
 }
 
-.profile {
+.feed-post-container {
+  height: 100%;
+  width: 60%;
+}
+
+.feed-post-container {
+  margin-bottom: 40px;
   display: flex;
+  padding: 30px;
   flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.feed-post-caption {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.side-profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 60px 0px 0px 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+}
+
+.dashboard-side-profile-container {
+  width: 20%;
+  height: 70%;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+.dashboard-post-feed-container {
+  padding-left: 16%;
+  width: 75%;
+}
+
+.side-profile {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
 }
 
-.profile-info, .now-playing{
-  padding: 10px 45px 10px 45px;
+.side-profile-info,
+.now-playing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 45px 5px 45px;
 }
 
-.profile-info a, .now-playing a{
+.side-profile-info a,
+.now-playing a {
   color: #84bd00;
   text-decoration: none;
 }
 
-.profile-info a:hover, .now-playing a:hover{
+.side-profile-info a:hover,
+.now-playing a:hover {
   color: #84bd0079;
   text-decoration: none;
 }
 
-.now-playing {
-  display:flex;
-  flex-direction: column;
-}
-.profile-pic, .now-playing-image {
+.side-profile-pic,
+.now-playing-image {
   width: auto;
-  height: 200px;
+  height: 100px;
+}
+
+.profile-pic {
+  border-radius: 50%;
+}
+
+.song-suggestions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  border: 1px solid black;
+}
+
+.song-search-container {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.7);
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px 25px 15px 25px;
+  height: 150px;
+  margin: 60px 0px 25px 20px;
+}
+
+.song-search-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.song-search-container input {
+  width: 500px;
+  font-size: 28px;
+  height: 45px;
+  padding: 5px;
+  outline: none;
+  border: none;
+  -moz-transition: 0.3s all;
+  -o-transition: 0.3s all;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.song-search-title {
+  font-size: 23px;
+}
+
+.share-button {
+  font-size: 30px;
+  color: whitesmoke;
+  padding:15px;
+}
+
+.share-button i:hover {
+  color: #84bd00;
+}
+
+.new-post-modal {
+  background: #232526; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to left,
+    #414345,
+    #232526
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to left,
+    #414345,
+    #232526
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  outline: none;
+  margin-top: 25px;
+  position: fixed;
+  top: 0%;
+  left: 26.5%;
+  padding: 25px;
+  height: 85%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-post-modal-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+.new-post-modal-input {
+  width: 100%;
+}
+.new-post-modal-form textarea {
+  outline: none;
+  border: none;
+  width: 85%;
+  resize: none;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  height: 15%;
+  padding: 15px;
+  border-radius: 25px;
+}
+.new-post-modal a {
+  text-decoration: none;
+  color: #84bd00;
+}
+.new-post-modal a:hover {
+  color: #84bd0079;
+}
+
+.new-post-modal-share-button button,
+.user-follow-button button {
+  background: #84bd00;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  width: 175px;
+  height: 50px;
+  font-weight: 300;
+  color: #fefefe;
+  cursor: pointer;
+  -moz-transition: 0.2s all;
+  -o-transition: 0.2s all;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+.user-profile-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.user-profile {
+  background-color: rgba(0, 0, 0, 0.7);
+  margin-top: 55px;
+  width: 60%;
+  height: 18%;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 25px;
+}
+
+.user-profile-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-profile-info a {
+  color: #84bd00;
+  text-decoration: none;
+}
+.user-profile-info a:hover {
+  color: #84bd0079;
+}
+
+.user-profile-info img {
+  width: 90px;
+  border-radius: 50%;
+  height: auto;
+}
+
+.user-posts {
+  margin-top: 20%;
+  padding-bottom: 5%;
+  overflow: scroll;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+}
+
+.post-container {
+  margin-bottom: 40px;
+  display: flex;
+  padding: 30px;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.post-caption {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+}
+
+.user-follow-button button:hover,
+.new-post-modal-share-button button:hover {
+  background-color: #84bd0079;
+}
+
+.player-container .info-and-control .music-info .artist {
+  color: #84bd00;
+}
+.player-container .info-and-control .music-info .title {
+  color: #84bd00;
+}
+
+.slide-pane__overlay,
+.ReactModal__Overlay--after-open {
+  background: transparent;
+}
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 720px) {
 }
 
 /* https://www.designpieces.com/palette/spotify-color-palette-hex-and-rgb/ */

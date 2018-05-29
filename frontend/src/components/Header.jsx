@@ -12,25 +12,29 @@ class Header extends Component {
       <AuthConsumer>
         {({ activeUser, logout }) => (
           <div className="header-container">
-
             <div className="home-link">
-              <p>
-                <Link to="/">HOME</Link>
-              </p>
+              <Link to="/">
+                <i class="fas fa-home" />
+              </Link>
             </div>
-
-            {activeUser ? (
-              <div className="logout-link">
-                  <p onClick={logout}>LOGOUT</p>
+            <div className="github-link">
+              <a href="https://github.com/davidyshin/intune" target="_blank">
+                <i class="fab fa-github" />
+              </a>
+            </div>
+            {!activeUser ? (
+              <div className="login-link">
+                <Link to="/login">
+                  <i class="fas fa-sign-in-alt" />
+                </Link>
               </div>
             ) : (
-              <div className="login-link">
-                <Link to="/login">LOGIN</Link>
+              <div className="users-link">
+                <Link to="/profile">
+                  <i class="fas fa-users" />
+                </Link>
               </div>
             )}
-            <div className="github-link">
-            <a href="https://github.com/davidyshin/intune" target="_blank"><i class="fab fa-github"></i></a>
-              </div>
           </div>
         )}
       </AuthConsumer>

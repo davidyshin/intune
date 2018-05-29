@@ -20,6 +20,7 @@ class AuthProvider extends Component {
       .catch(err => {
         console.log(`errrr`, err);
       });
+
   }
 
   logout = () => {
