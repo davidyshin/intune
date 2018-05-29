@@ -23,11 +23,12 @@ class FeedPost extends Component {
     });
     axios.get(`/getProfile/${this.props.feedPost.user_id}`).then(res => {
       this.setState({ author: res.data.user });
+      console.log(this.state.author)
     });
   }
   render() {
     const { feedPost, author } = this.state;
-    return feedPost !== undefined ? (
+    return feedPost !== undefined && author !== undefined ? (
       <div className="feed-post-container">
         <SpotifyPlayer size={size} uri={feedPost.spotify_uri} />
         <div className="feed-post-caption">
