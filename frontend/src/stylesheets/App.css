@@ -135,11 +135,12 @@ body {
 .feed-post-info {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
+  text-align:center;
+  width: 30%;
+
 }
-
-
 
 .side-profile-container {
   display: flex;
@@ -197,7 +198,6 @@ body {
   width: auto;
   height: 100px;
 }
-
 
 .profile-pic {
   border-radius: 50%;
@@ -385,12 +385,12 @@ body {
 }
 
 .user-profile-info a,
-.feed-post-author-link {
+.feed-post-author a {
   color: #84bd00;
   text-decoration: none;
 }
 .user-profile-info a:hover,
-.feed-post-author-link:hover {
+.feed-post-author a:hover {
   color: #84bd0079;
 }
 
@@ -446,11 +446,9 @@ body {
   width: auto;
   height: 50px;
 }
-.feed-post-profile-pic{
+.feed-post-profile-pic {
   border-radius: 50%;
 }
-
-
 
 .slide-pane__overlay,
 .ReactModal__Overlay--after-open {

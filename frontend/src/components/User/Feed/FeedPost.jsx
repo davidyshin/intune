@@ -40,10 +40,10 @@ class FeedPost extends Component {
               }
             />
 
-            <a href={author.spotify_url} className="feed-post-author-link">
+            <Link to ={`/user/${author.spotifyid}`}>
               {' '}
               <h3> {author.name ? author.name : author.spotifyid} </h3>
-            </a>
+            </Link>
           </div>
           <div className="feed-post-caption">
             <p> {feedPost.dates}</p>
