@@ -2,25 +2,50 @@ import React, { Component } from 'react';
 import { AuthConsumer } from '../../Auth/AuthContext';
 import { Link } from 'react-router-dom';
 import SpotifyWebApi from 'spotify-web-api-js';
-import Autocomplete from 'react-autocomplete';
+import axios from 'axios';
+import Post from '../../Profile/Post.jsx';
 const spotifyApi = new SpotifyWebApi();
 
 class UserProfile extends Component {
   constructor() {
     super();
-
     this.state = {
       activeUser: '',
-      nowPlaying: { name: '', albumArt: '' }
+      nowPlaying: {},
+      followers: [],
+      followees: [],
+      posts: []
     };
   }
 
-  componentDidMount() {
+  handleFollowButton = e => {
+    e.preventDefault();
+    console.log('Follow');
+  };
+  getUserFollowers = () => {
+    axios
+      .get(`/users/getUserFollowers/${this.props.activeUser.spotifyid}`)
+      .then(res => {
+        const fetchedFollowers = [];
+        res.data.followers.forEach(follower => {
+          fetchedFollowers.push(follower.follower_id);
+        });
+        this.setState({ followers: fetchedFollowers });
+        console.log(fetchedFollowers);
+      });
+  };
+
+  getUserFollowees = () => {
+    axios
+      .get(`/users/getUserFollowees/${this.props.activeUser.spotifyid}`)
+      .then(res => {
+        this.setState({ followees: res.data.followees });
+      });
+  };
+
+  componentWillMount() {
+    this.setState({ activeUser: this.props.activeUser });
     const activeUser = this.props.activeUser;
-    const profilePic = activeUser.profile_pic
-      ? activeUser.profile_pic
-      : 'https://www.drupal.org/files/profile_default.png';
-    this.setState({ activeUser: activeUser, profilePic: profilePic });
     const token = activeUser.accesstoken;
     if (token) {
       spotifyApi.setAccessToken(token);
@@ -36,48 +61,74 @@ class UserProfile extends Component {
         });
       }
     });
+    axios
+      .get('/users/getPosts', {
+        user_id: this.props.activeUser.spotifyid
+      })
+      .then(res => {
+        this.setState({ posts: res.data.posts });
+      });
+    this.getUserFollowees();
+    this.getUserFollowers();
   }
 
   render() {
-    const {profilePic, nowPlaying } = this.state;
+    const { nowPlaying, posts } = this.state;
+    console.log(posts);
+
     return (
       <AuthConsumer>
-        {({ activeUser, logout }) =>
+        {({ activeUser }) =>
           activeUser ? (
-            <div className="profile-container">
-              <div className="profile">
-                <div className="profile-info">
-                  <p>
-                    <a href={activeUser.spotify_url} target="_blank">
+            <div className="user-profile-container">
+              <div className="user-profile">
+                {' '}
+                <div className="user-profile-info">
+                  <a href={activeUser.spotify_url}>
+                    {' '}
+                    <p>
                       {' '}
-                      {activeUser.name
-                        ? activeUser.name
-                        : activeUser.spotifyid}{' '}
-                    </a>
-                  </p>{' '}
-                  <img className="profile-pic" src={profilePic} />
-                </div>
-                <div className="now-playing">
-                  <p>
-                    Listening to:{' '}
-                    <a href={nowPlaying.link} target="_blank">
-                      {nowPlaying.name}
-                    </a>
-                  </p>
+                      {activeUser.name ? activeUser.name : activeUser.spotifyid}
+                    </p>{' '}
+                  </a>
                   <img
-                    className="now-playing-image"
-                    src={nowPlaying.albumArt}
+                    src={
+                      activeUser.profile_pic
+                        ? activeUser.profile_pic
+                        : 'https://www.drupal.org/files/profile_default.png'
+                    }
                   />
                 </div>
+                <div className="user-profile-counts">
+                  <p> Following: {this.state.followees.length} </p>
+                  <p> Followers: {this.state.followers.length} </p>
+                  <p> Posts: {this.state.posts.length} </p>
+                </div>
+                {nowPlaying.name ? (
+                  <div className="now-playing">
+                    <p>
+                      Listening to:{' '}
+                      <a href={nowPlaying.link} target="_blank">
+                        {nowPlaying.name}
+                      </a>
+                    </p>
+                    <img
+                      className="now-playing-image"
+                      src={nowPlaying.albumArt}
+                    />
+                  </div>
+                ) : (
+                  <p>You're not listening to anything at the moment</p>
+                )}
               </div>
-              <div className="logout-link">
-                <p onClick={logout}>
-                  <i class="fas fa-sign-out-alt" />
-                </p>
+              <div className="user-posts">
+                {posts.map(post => {
+                  return <Post post={post} />;
+                })}
               </div>
             </div>
           ) : (
-            <h1>Loading</h1>
+            <div>Loading.</div>
           )
         }
       </AuthConsumer>

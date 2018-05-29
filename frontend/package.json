@@ -10,9 +10,12 @@
     "react-autocomplete": "^1.8.1",
     "react-autosuggest": "^9.3.4",
     "react-dom": "^16.3.2",
+    "react-modal": "^3.4.4",
+    "react-responsive-music-player": "^0.2.4",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "react-spotify-player": "^1.0.4"
   },
   "scripts": {
     "start": "react-scripts start",

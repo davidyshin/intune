@@ -30,7 +30,7 @@ class Header extends Component {
               </div>
             ) : (
               <div className="users-link">
-                <Link to="/users">
+                <Link to="/profile">
                   <i class="fas fa-users" />
                 </Link>
               </div>
