@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SpotifyPlayer from 'react-spotify-player';
-
+import axios from 'axios';
 const size = {
   width: '300',
   height: '300'
@@ -12,22 +12,31 @@ class FeedPost extends Component {
   constructor() {
     super();
     this.state = {
-      feedPost: []
+      feedPost: [],
+      author: ''
     };
   }
   componentDidMount() {
-      console.log(this.props.feedPost)
+    console.log(this.props.feedPost);
     this.setState({
       feedPost: this.props.feedPost
     });
+    axios.get(`/getProfile/${feedPost.user_id}`).then(res => {
+      this.setState({ author: res.data.user });
+    });
   }
   render() {
-    const { feedPost } = this.state;
+    const { feedPost, author } = this.state;
     return feedPost !== undefined ? (
       <div className="feed-post-container">
         <SpotifyPlayer size={size} uri={feedPost.spotify_uri} />
         <div className="feed-post-caption">
-            <h3> {feedPost.user_id} </h3>
+          <a className="feed-post-author-link">
+            {' '}
+            href={author.spotify_url}>{' '}
+            <h3> {author.name ? author.name : author.spotifyid} </h3>
+          </a>
+          <img src={author.profile_pic} />
           <p> {feedPost.dates}</p>
           <p> {feedPost.caption}</p>
         </div>
