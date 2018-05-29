@@ -32,7 +32,7 @@ class FeedPost extends Component {
         <div className="feed-post-info">
           <div className="feed-post-author">
             <img
-              className="feed-post-profile_pic"
+              className="feed-post-profile-pic"
               src={
                 author.profile_pic
                   ? author.profile_pic
