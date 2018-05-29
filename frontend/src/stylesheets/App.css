@@ -107,10 +107,7 @@ body {
   justify-content: space-evenly;
   align-items: flex-start;
 }
-.dashboard-side-profile-container {
-  width: 20%;
-  height: 70%;
-}
+
 
 .feed-container {
   padding-bottom: 5%;
@@ -123,6 +120,7 @@ body {
 
 .feed-post-container {
   height: 100%;
+  width: 60%;
 }
 
 .feed-post-container {
@@ -130,7 +128,7 @@ body {
   display: flex;
   padding: 30px;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: flex-start;
   background-color: rgba(0, 0, 0, 0.7);
 }
@@ -140,7 +138,6 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-left: 30px;
 }
 
 .side-profile-container {
@@ -151,7 +148,17 @@ body {
   margin: 60px 0px 0px 20px;
   background-color: rgba(0, 0, 0, 0.8);
   padding: 10px;
+}
+
+.dashboard-side-profile-container {
+  width: 20%;
+  height: 70%;
   position: fixed;
+  left: 0;
+  top: 0;
+}
+.dashboard-post-feed-container {
+  padding-left: 15%;
 }
 
 .side-profile {
@@ -193,11 +200,6 @@ body {
   border-radius: 50%;
 }
 
-.dashboard-post-feed-container {
-  width: 70%;
-  height: 80%;
-}
-
 .song-suggestions {
   display: flex;
   flex-direction: row;
@@ -212,6 +214,7 @@ body {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  padding: 15px 25px 15px 25px;
   height: 150px;
   margin: 60px 0px 25px 20px;
 }
@@ -244,6 +247,7 @@ body {
 .share-button {
   font-size: 30px;
   color: whitesmoke;
+  padding:15px;
 }
 
 .share-button i:hover {
@@ -377,7 +381,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 60%;
 }
 
 .post-container {
@@ -385,17 +389,20 @@ body {
   display: flex;
   padding: 30px;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: flex-start;
   background-color: rgba(0, 0, 0, 0.7);
 }
 
 .post-caption {
   display: flex;
+  width: 50%;
+  height: 100%;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  padding-left: 30px;
+  text-align: center;
+
 }
 
 .user-follow-button button:hover,
