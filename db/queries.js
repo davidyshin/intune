@@ -149,6 +149,19 @@ const getUserPosts = (req, res, next) => {
     });
 };
 
+const findUser = (req, res, next) => {
+  db
+    .any(
+      'SELECT spotifyid, name, profile_pic FROM users where lower(name) ~ ${search_input} OR lower(spotifyid) ~ ${search_input}',
+      {
+        search_input: req.params.input
+      }
+    )
+    .then(data => {
+      res.status(200).json({ users: data });
+    });
+};
+
 module.exports = {
   getUser,
   logoutUser,
@@ -160,5 +173,6 @@ module.exports = {
   getFeed,
   getUserPosts,
   getUserFollowers,
-  getUserFollowees
+  getUserFollowees,
+  findUser
 };

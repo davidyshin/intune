@@ -227,6 +227,27 @@ body {
   align-items: center;
 }
 
+.user-search-container input {
+  width: 300px;
+  font-size: 13px;
+  height: 20px;
+}
+
+.user-search-container img {
+  height: 50px;
+  width: auto;
+}
+
+.user-search-suggestions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border: none;
+}
+.user-name {
+ padding-left: 50px;
+}
 .song-search-container input {
   width: 500px;
   font-size: 28px;
