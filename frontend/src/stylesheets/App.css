@@ -132,12 +132,14 @@ body {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-.feed-post-caption {
+.feed-post-info {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
 }
+
+
 
 .side-profile-container {
   display: flex;
@@ -196,10 +198,6 @@ body {
   height: 100px;
 }
 
-.feed-post-profile-pic {
-  width: auto;
-  height: 64px;
-}
 
 .profile-pic {
   border-radius: 50%;
@@ -443,6 +441,16 @@ body {
 .player-container .info-and-control .music-info .title {
   color: #84bd00;
 }
+
+.feed-post-profile-pic {
+  width: auto;
+  height: 50px;
+}
+.feed-post-profile-pic{
+  border-radius: 50%;
+}
+
+
 
 .slide-pane__overlay,
 .ReactModal__Overlay--after-open {
