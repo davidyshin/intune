@@ -52,7 +52,6 @@ class Profile extends Component {
         fetchedFollowers.push(follower.follower_id);
       });
       this.setState({ followers: fetchedFollowers });
-      console.log(fetchedFollowers);
     });
   };
 

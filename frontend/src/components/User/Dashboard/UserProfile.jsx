@@ -18,10 +18,6 @@ class UserProfile extends Component {
     };
   }
 
-  handleFollowButton = e => {
-    e.preventDefault();
-    console.log('Follow');
-  };
   getUserFollowers = () => {
     axios
       .get(`/users/getUserFollowers/${this.props.activeUser.spotifyid}`)
@@ -31,7 +27,6 @@ class UserProfile extends Component {
           fetchedFollowers.push(follower.follower_id);
         });
         this.setState({ followers: fetchedFollowers });
-        console.log(fetchedFollowers);
       });
   };
 
@@ -74,7 +69,6 @@ class UserProfile extends Component {
 
   render() {
     const { nowPlaying, posts } = this.state;
-    console.log(posts);
 
     return (
       <AuthConsumer>

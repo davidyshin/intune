@@ -17,13 +17,11 @@ class FeedPost extends Component {
     };
   }
   componentDidMount() {
-    console.log(this.props.feedPost);
     this.setState({
       feedPost: this.props.feedPost
     });
     axios.get(`/users/getProfile/${this.props.feedPost.user_id}`).then(res => {
       this.setState({ author: res.data.user });
-      console.log(this.state.author)
     });
   }
   render() {
