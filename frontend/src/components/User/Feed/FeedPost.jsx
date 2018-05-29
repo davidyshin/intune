@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SpotifyPlayer from 'react-spotify-player';
 import axios from 'axios';
+import {Link} from 'react-router-dom'
 const size = {
   width: '300',
   height: '300'
