@@ -62,7 +62,8 @@ class Header extends Component {
                             ? '#84bd00'
                             : 'rgba(0,0,0,.75)',
                           width: '99%',
-                          height: '100%'
+                          height: '100%',
+                          zIndex: 999
                         }}
                       >
                         <div className="user-profile-pic">

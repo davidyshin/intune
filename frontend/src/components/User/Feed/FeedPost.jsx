@@ -21,7 +21,7 @@ class FeedPost extends Component {
     this.setState({
       feedPost: this.props.feedPost
     });
-    axios.get(`/getProfile/${feedPost.user_id}`).then(res => {
+    axios.get(`/getProfile/${this.props.feedPost.user_id}`).then(res => {
       this.setState({ author: res.data.user });
     });
   }
