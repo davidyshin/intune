@@ -43,7 +43,7 @@ app.use('/', index);
 app.use('/users', users);
 
 app.get(
-  '/auth/callback',
+  'http://ds-intune.herokuapp.com/auth/callback',
   passport.authenticate('spotify', {
     failureRedirect: 'http://ds-intune.herokuapp.com/login'
   }),
@@ -53,7 +53,7 @@ app.get(
 );
 
 app.get(
-  '/auth',
+  'http://ds-intune.herokuapp.com/auth',
   passport.authenticate('spotify', {
     scope: [
       'user-read-email',

@@ -20,7 +20,6 @@ CREATE TABLE posts
 (
   ID SERIAL PRIMARY KEY,
   spotify_uri VARCHAR,
-  album_cover VARCHAR,
   caption VARCHAR,
   user_id VARCHAR REFERENCES users(spotifyId),
   dates VARCHAR

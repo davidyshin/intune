@@ -22,7 +22,6 @@ passport.use(
       // });
       const user = profile._json;
       const profilePicture = user.images.length > 0 ? user.images[0].url : '';
-      console.log(profile);
       db
         .none(
           'UPDATE Users SET accessToken = ${accessToken} WHERE spotifyId = ${id}',
