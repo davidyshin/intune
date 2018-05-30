@@ -4,6 +4,13 @@ import Profile from './Profile.jsx';
 class ProfileContainer extends Component {
   constructor() {
     super();
+    this.state= {
+      selectedUser: ''
+    }
+  }
+
+  componentWillReceiveProps() {
+    this.setState({selectedUser: this.props.match.params.id})
   }
 
   render() {

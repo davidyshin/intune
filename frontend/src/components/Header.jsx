@@ -87,6 +87,7 @@ class Header extends Component {
                     this.setState({
                       selectedUser: value
                     });
+                    <Redirect to ={`/user/${value}`}/>
                   }}
                 />
               </div>
