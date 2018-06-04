@@ -246,10 +246,13 @@ body {
   width: auto;
 }
 
+.user-search-container div {
+  z-index: 999;
+}
 .user-search-suggestions {
   display: flex;
   flex-direction: row;
-  z-index: '999';
+  z-index: 999;
   justify-content: flex-start;
   align-items: center;
   border: none;
