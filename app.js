@@ -1,3 +1,4 @@
+
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
@@ -43,7 +44,7 @@ app.use('/', index);
 app.use('/users', users);
 
 app.get(
-  '/auth/callback',
+  'http://ds-intune.herokuapp.com/auth/callback',
   passport.authenticate('spotify', {
     failureRedirect: 'http://ds-intune.herokuapp.com/login'
   }),
@@ -53,7 +54,7 @@ app.get(
 );
 
 app.get(
-  '/auth',
+  'http://ds-intune.herokuapp.com/auth',
   passport.authenticate('spotify', {
     scope: [
       'user-read-email',

@@ -56,7 +56,7 @@ const createSongShare = (req, res, next) => {
 const getFeed = (req, res, next) => {
   db
     .any(
-      'SELECT spotify_uri, caption, user_id, dates FROM follows JOIN posts ON follows.followee_id=posts.user_id JOIN users ON follows.followee_id=users.spotifyid WHERE follower_id=${user} OR followee_id=${user} ORDER BY posts.id DESC',
+      'SELECT spotify_uri, caption, user_id, dates FROM follows JOIN posts ON follows.followee_id=posts.user_id JOIN users ON follows.followee_id=users.spotifyid WHERE follower_id=${user} ORDER BY posts.id DESC',
       { user: req.user.spotifyid }
     )
     .then(data => {

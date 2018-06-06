@@ -4,6 +4,7 @@ import { Link, Redirect } from 'react-router-dom';
 import SpotifyWebApi from 'spotify-web-api-js';
 import axios from 'axios';
 import Post from './Post.jsx';
+import aos from 'aos'
 const spotifyApi = new SpotifyWebApi();
 
 class Profile extends Component {
@@ -82,7 +83,7 @@ class Profile extends Component {
     }
     return user ? (
       <div className="user-profile-container">
-        <div className="user-profile">
+        <div data-aos="fade-up" className="user-profile">
           {' '}
           <div className="user-profile-info">
             <a href={user.external_urls.spotify}>
@@ -117,11 +118,12 @@ class Profile extends Component {
             </div>
           )}
         </div>
-        <div className="user-posts">
+        {posts.length > 0 ? 
+        (<div className="user-posts">
           {posts.map(post => {
             return <Post post={post} />;
           })}
-        </div>
+        </div>) : (<div className="user-no-posts"><h1> Nothing yet :(</h1></div>)}
       </div>
     ) : (
       <div>Loading.</div>

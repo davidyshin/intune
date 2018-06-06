@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import SpotifyWebApi from 'spotify-web-api-js';
 import axios from 'axios';
 import Post from '../../Profile/Post.jsx';
+import aos from 'aos'
 const spotifyApi = new SpotifyWebApi();
 
 class UserProfile extends Component {
@@ -74,7 +75,7 @@ class UserProfile extends Component {
       <AuthConsumer>
         {({ activeUser }) =>
           activeUser ? (
-            <div className="user-profile-container">
+            <div data-aos="fade-up" className="user-profile-container">
               <div className="user-profile">
                 {' '}
                 <div className="user-profile-info">

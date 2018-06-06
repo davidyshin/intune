@@ -103,8 +103,8 @@ class UserNewPost extends Component {
                   className="song-suggestions"
                   style={{
                     background: isHighlighted ? '#84bd00' : 'rgba(0,0,0,.75)',
-                    width: '500px',
-                    height: '100%'
+                    height: '99%',
+                    width: '99%'
                   }}
                 >
                   <div className="song-info" key="song">

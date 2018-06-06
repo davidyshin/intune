@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SpotifyPlayer from 'react-spotify-player';
-
+import aos from 'aos'
 const size = {
   width: '300',
   height: '300'

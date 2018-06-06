@@ -3,11 +3,14 @@ import axios from 'axios';
 import { AuthConsumer } from './AuthContext';
 import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
-import AOS from 'aos';
+import aos from 'aos';
 import '../../../node_modules/aos/dist/aos.css';
 class LoginForm extends Component {
   constructor() {
     super();
+  }
+  componentDidMount() {
+    aos.init()
   }
 
   render() {
@@ -18,7 +21,7 @@ class LoginForm extends Component {
             <Redirect to="/" />
           ) : (
             <div className="login-container">
-              <div className="spotify-auth-link">
+              <div data-aos="fade-up" className="spotify-auth-link">
                 {' '}
                 <a href="http://ds-intune.herokuapp.com/auth">
                   <i class="fab fa-spotify" />

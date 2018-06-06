@@ -10,7 +10,6 @@ class Header extends Component {
     this.state = {
       userSearchRender: [],
       userSearchInput: '',
-      selectedUser: ''
     };
   }
 
@@ -29,7 +28,6 @@ class Header extends Component {
   };
 
   render() {
-    const { selectedUser } = this.state;
     return (
       <AuthConsumer>
         {({ activeUser, logout }) => (
@@ -84,9 +82,6 @@ class Header extends Component {
                   value={this.state.userSearchInput}
                   onChange={this.getSuggestions}
                   onSelect={(value, item) => {
-                    this.setState({
-                      selectedUser: value
-                    });
                     <Redirect to ={`/user/${value}`}/>
                   }}
                 />
