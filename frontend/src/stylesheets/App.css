@@ -551,9 +551,22 @@ body {
   .header-container {
     width: 100%;
   }
+  .new-post-modal {
+    left: 13%;
+    margin-top: 13%;
+    height: auto;
+    width: 60%;
+  }
 }
 
 @media screen and (max-width: 430px) {
+  .new-post-modal {
+    left: 8%;
+    margin-top: 15%;
+    top: auto;
+    height: auto;
+    width: auto;
+  }
   .song-search-container {
     display: flex;
     background-color: rgba(0, 0, 0, 0.7);
