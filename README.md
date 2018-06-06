@@ -8,16 +8,14 @@ This application was inspired by my desire to share music with my friends and lo
 
 Enjoy.
 
-<!-- <img src="./assets/preview/startscreen.gif" width="800" height="600" /> -->
+<img src="./public/preview/intune.png"/>
 
 ## Technologies
-InTune is built with React.js, HTML5/CSS for front-end rendering, and uses Express, and PostGres for the back-end.
+InTune is built with React.js, HTML5/CSS for front-end rendering, and uses a combination of Express, OAuth 2.0, Passport.js, PostGres, for user authentication and the back-end. 
 
 ## Preview
 
-<!-- <img src="./assets/preview/preview.gif" width="800" height="600" />
-
-<img src="./assets/preview/gameover.gif" width="800" height="600" /> -->
+<img src="./public/preview/intune.gif" />
 
 ## Future Features
 * Implement comments on posts
