@@ -44,12 +44,12 @@ app.use('/', index);
 app.use('/users', users);
 
 app.get(
-  'http://ds-intune.herokuapp.com/auth/callback',
+  '/auth/callback',
   passport.authenticate('spotify', {
     failureRedirect: 'http://ds-intune.herokuapp.com/login'
   }),
   (req, res) => {
-    res.redirect('http://ds-intune.herokuapp.com/');
+    res.redirect('/');
   }
 );
 
