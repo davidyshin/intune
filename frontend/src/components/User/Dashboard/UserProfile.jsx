@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import SpotifyWebApi from 'spotify-web-api-js';
 import axios from 'axios';
 import Post from '../../Profile/Post.jsx';
+import aos from 'aos'
 const spotifyApi = new SpotifyWebApi();
 
 class UserProfile extends Component {
@@ -18,10 +19,6 @@ class UserProfile extends Component {
     };
   }
 
-  handleFollowButton = e => {
-    e.preventDefault();
-    console.log('Follow');
-  };
   getUserFollowers = () => {
     axios
       .get(`/users/getUserFollowers/${this.props.activeUser.spotifyid}`)
@@ -31,7 +28,6 @@ class UserProfile extends Component {
           fetchedFollowers.push(follower.follower_id);
         });
         this.setState({ followers: fetchedFollowers });
-        console.log(fetchedFollowers);
       });
   };
 
@@ -74,13 +70,12 @@ class UserProfile extends Component {
 
   render() {
     const { nowPlaying, posts } = this.state;
-    console.log(posts);
 
     return (
       <AuthConsumer>
         {({ activeUser }) =>
           activeUser ? (
-            <div className="user-profile-container">
+            <div data-aos="fade-up" className="user-profile-container">
               <div className="user-profile">
                 {' '}
                 <div className="user-profile-info">

@@ -7,6 +7,7 @@ import UserProfile from './UserProfile.jsx';
 import FeedContainer from '../Feed/FeedContainer.jsx';
 import ProfileContainer from '../../Profile/ProfileContainer.jsx';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import aos from 'aos'
 
 class UserDashboard extends Component {
   constructor() {
@@ -23,7 +24,7 @@ class UserDashboard extends Component {
 
   UserHome = () => {
     return (
-      <div className="user-dashboard">
+      <div data-aos="fade-up" className="user-dashboard">
         <div className="dashboard-side-profile-container">
           <SideProfile activeUser={this.props.activeUser} />
         </div>

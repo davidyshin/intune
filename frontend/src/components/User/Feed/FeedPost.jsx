@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SpotifyPlayer from 'react-spotify-player';
 import axios from 'axios';
+import {Link} from 'react-router-dom'
 const size = {
   width: '300',
   height: '300'
@@ -12,33 +13,43 @@ class FeedPost extends Component {
   constructor() {
     super();
     this.state = {
-      feedPost: [],
+      feedPost: '',
       author: ''
     };
   }
   componentDidMount() {
-    console.log(this.props.feedPost);
     this.setState({
       feedPost: this.props.feedPost
     });
-    axios.get(`/getProfile/${this.props.feedPost.user_id}`).then(res => {
+    axios.get(`/users/getProfile/${this.props.feedPost.user_id}`).then(res => {
       this.setState({ author: res.data.user });
     });
   }
   render() {
     const { feedPost, author } = this.state;
-    return feedPost !== undefined ? (
+    return feedPost && author ? (
       <div className="feed-post-container">
         <SpotifyPlayer size={size} uri={feedPost.spotify_uri} />
-        <div className="feed-post-caption">
-          <a className="feed-post-author-link">
-            {' '}
-            href={author.spotify_url}>{' '}
-            <h3> {author.name ? author.name : author.spotifyid} </h3>
-          </a>
-          <img src={author.profile_pic} />
-          <p> {feedPost.dates}</p>
-          <p> {feedPost.caption}</p>
+        <div className="feed-post-info">
+          <div className="feed-post-author">
+            <img
+              className="feed-post-profile-pic"
+              src={
+                author.profile_pic
+                  ? author.profile_pic
+                  : 'https://www.drupal.org/files/profile_default.png'
+              }
+            />
+
+            <Link to ={`/user/${author.spotifyid}`}>
+              {' '}
+              <h3> {author.name ? author.name : author.spotifyid} </h3>
+            </Link>
+          </div>
+          <div className="feed-post-caption">
+            <p> {feedPost.dates}</p>
+            <p> {feedPost.caption}</p>
+          </div>
         </div>
       </div>
     ) : (

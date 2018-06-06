@@ -1,6 +1,4 @@
 html {
-  width: 100%;
-  height: 100%;
   color: whitesmoke;
 }
 
@@ -9,6 +7,7 @@ html {
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
+  width: 100%;
   height: 100%;
 }
 
@@ -19,10 +18,6 @@ body {
   background-size: cover; /* <------ */
   background-repeat: no-repeat;
   background-position: center center;
-  height: 100%;
-}
-#root {
-  height: 100%;
 }
 
 .splash-container,
@@ -53,12 +48,13 @@ body {
   background-color: rgba(0, 0, 0);
   height: 50px;
   text-align: center;
-  width: 100vw;
+  width: 100%;
   color: whitesmoke;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  z-index: 99;
 }
 
 .header-container a {
@@ -108,20 +104,14 @@ body {
   align-items: flex-start;
 }
 
-
 .feed-container {
-  padding-bottom: 5%;
-  overflow: scroll;
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.feed-post-container {
-  height: 100%;
-  width: 60%;
-}
 
 .feed-post-container {
   margin-bottom: 40px;
@@ -131,15 +121,26 @@ body {
   justify-content: space-around;
   align-items: flex-start;
   background-color: rgba(0, 0, 0, 0.7);
+  height: 100%;
+  width: 60%;
 }
 
-.feed-post-caption {
+.feed-post-info {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
+  text-align: center;
+  width: 30%;
 }
 
+.feed-post-author {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 .side-profile-container {
   display: flex;
   flex-direction: column;
@@ -207,6 +208,7 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   border: 1px solid black;
+
 }
 
 .song-search-container {
@@ -238,15 +240,19 @@ body {
   width: auto;
 }
 
+.user-search-container div {
+  z-index: 999;
+}
 .user-search-suggestions {
   display: flex;
   flex-direction: row;
+  z-index: 999;
   justify-content: flex-start;
   align-items: center;
   border: none;
 }
 .user-name {
- padding-left: 50px;
+  padding-left: 50px;
 }
 .song-search-container input {
   width: 500px;
@@ -269,7 +275,7 @@ body {
 .share-button {
   font-size: 30px;
   color: whitesmoke;
-  padding:15px;
+  padding: 15px;
 }
 
 .share-button i:hover {
@@ -290,7 +296,7 @@ body {
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   outline: none;
-  margin-top: 25px;
+  margin-top: 8%;
   position: fixed;
   top: 0%;
   left: 26.5%;
@@ -366,8 +372,7 @@ body {
   background-color: rgba(0, 0, 0, 0.7);
   margin-top: 55px;
   width: 60%;
-  height: 18%;
-  position: fixed;
+  height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -382,11 +387,13 @@ body {
   align-items: center;
 }
 
-.user-profile-info a {
+.user-profile-info a,
+.feed-post-author a {
   color: #84bd00;
   text-decoration: none;
 }
-.user-profile-info a:hover {
+.user-profile-info a:hover,
+.feed-post-author a:hover {
   color: #84bd0079;
 }
 
@@ -397,11 +404,12 @@ body {
 }
 
 .user-posts {
-  margin-top: 20%;
+  margin-top: 3%;
   padding-bottom: 5%;
-  overflow: scroll;
+  overflow-y: scroll;
   flex-direction: column;
   justify-content: center;
+  height: 100%;
   align-items: center;
   width: 60%;
 }
@@ -424,7 +432,17 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
 
+.user-no-posts {
+  width: 100%;
+  overflow: hidden;
+  height: 250vh;
+  text-align: center;
+}
+
+.user-posts {
+  height: 100%;
 }
 
 .user-follow-button button:hover,
@@ -439,15 +457,168 @@ body {
   color: #84bd00;
 }
 
+.feed-post-profile-pic {
+  width: auto;
+  height: 50px;
+}
+.feed-post-profile-pic {
+  border-radius: 50%;
+}
+
 .slide-pane__overlay,
 .ReactModal__Overlay--after-open {
   background: transparent;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 800px) {
+  .header-container a {
+    padding: 0;
+  }
+  .song-search-container {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.7);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    margin: 20px 0px 50px 0px;
+  }
+  .user-posts {
+    height: 100%;
+    width: 80%;
+  }
+
+  .user-profile {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .post-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .post-container iframe {
+    width: 100%;
+    height: auto;
+  }
+  .song-search-title,
+  .share-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .song-search-input input {
+    text-align: center;
+  }
+
+  .header-container {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .user-dashboard {
+    width: 100%;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    margin-top: 10%;
+  }
+  .dashboard-post-feed-container {
+    padding: 0;
+    width: 100%;
+  }
+
+  .side-profile-container,
+  .side-profile-info {
+    display: none;
+    width: 0px;
+    height: 0px;
+  }
+  .header-container {
+    width: 100%;
+  }
+  .new-post-modal {
+    left: 13%;
+    margin-top: 13%;
+    height: auto;
+    width: 60%;
+  }
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 430px) {
+  .new-post-modal {
+    left: 8%;
+    margin-top: 15%;
+    top: auto;
+    height: auto;
+    width: auto;
+  }
+  .song-search-container {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.7);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 100%;
+    margin: 0;
+    margin: 20px 0px 50px 0px;
+  }
+  .song-search-title,
+  .share-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .song-search-input,
+  .song-search-input form,
+  .song-search-input form div {
+    width: 99%;
+  }
+
+  .song-search-input input {
+    text-align: center;
+    width: 100%;
+  }
+
+  .user-dashboard {
+    width: 100%;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .dashboard-post-feed-container {
+    padding: 0;
+    width: 100%;
+  }
+
+  .side-profile-container,
+  .side-profile-info {
+    display: none;
+  }
+  .feed-post-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 /* https://www.designpieces.com/palette/spotify-color-palette-hex-and-rgb/ */
