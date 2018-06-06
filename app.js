@@ -44,7 +44,7 @@ app.use('/', index);
 app.use('/users', users);
 
 app.get(
-  '/auth/callback',
+  'http://ds-intune.herokuapp.com/auth/callback',
   passport.authenticate('spotify', {
     failureRedirect: 'http://ds-intune.herokuapp.com/login'
   }),
