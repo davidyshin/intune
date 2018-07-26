@@ -13,7 +13,7 @@ html {
 
 body {
   /* background-image: url('https://images.pexels.com/photos/6251/desk-music-headphones-earphones.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'); */
-  background-image: url('https://images.pexels.com/photos/3104/black-and-white-music-headphones-life.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  background-image: url("https://images.pexels.com/photos/3104/black-and-white-music-headphones-life.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   background-attachment: fixed;
   background-size: cover; /* <------ */
   background-repeat: no-repeat;
@@ -35,7 +35,7 @@ body {
 }
 
 .splash-intune {
-  color: #84bd00;
+  color: #1db954;
 }
 .splash-container p {
   color: whitesmoke;
@@ -69,7 +69,7 @@ body {
   font-size: 18px;
 }
 .logout-link p:hover {
-  color: #84bd00;
+  color: #1db954;
 }
 
 .spotify-auth-link {
@@ -84,15 +84,15 @@ body {
   font-size: 30px;
 }
 .spotify-auth-link i {
-  color: #84bd00;
+  color: #1db954;
   font-size: 150px;
 }
 
 .spotify-auth-link i:hover {
-  color: #84bd0079;
+  color: #1db95479;
 }
 .header-container a:hover {
-  color: #84bd00;
+  color: #1db954;
 }
 
 .user-dashboard {
@@ -111,7 +111,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 
 .feed-post-container {
   margin-bottom: 40px;
@@ -182,13 +181,13 @@ body {
 
 .side-profile-info a,
 .now-playing a {
-  color: #84bd00;
+  color: #1db954;
   text-decoration: none;
 }
 
 .side-profile-info a:hover,
 .now-playing a:hover {
-  color: #84bd0079;
+  color: #1db95479;
   text-decoration: none;
 }
 
@@ -208,7 +207,6 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   border: 1px solid black;
-
 }
 
 .song-search-container {
@@ -279,7 +277,7 @@ body {
 }
 
 .share-button i:hover {
-  color: #84bd00;
+  color: #1db954;
 }
 
 .new-post-modal {
@@ -335,15 +333,15 @@ body {
 }
 .new-post-modal a {
   text-decoration: none;
-  color: #84bd00;
+  color: #1db954;
 }
 .new-post-modal a:hover {
-  color: #84bd0079;
+  color: #1db95479;
 }
 
 .new-post-modal-share-button button,
 .user-follow-button button {
-  background: #84bd00;
+  background: #1db954;
   outline: none;
   border: none;
   font-size: 16px;
@@ -389,12 +387,12 @@ body {
 
 .user-profile-info a,
 .feed-post-author a {
-  color: #84bd00;
+  color: #1db954;
   text-decoration: none;
 }
 .user-profile-info a:hover,
 .feed-post-author a:hover {
-  color: #84bd0079;
+  color: #1db95479;
 }
 
 .user-profile-info img {
@@ -447,14 +445,14 @@ body {
 
 .user-follow-button button:hover,
 .new-post-modal-share-button button:hover {
-  background-color: #84bd0079;
+  background-color: #1db95479;
 }
 
 .player-container .info-and-control .music-info .artist {
-  color: #84bd00;
+  color: #1db954;
 }
 .player-container .info-and-control .music-info .title {
-  color: #84bd00;
+  color: #1db954;
 }
 
 .feed-post-profile-pic {
